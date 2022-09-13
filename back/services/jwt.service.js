@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const secret = process.env.UVIE_SECRET;
+const secret = process.env.ELECTION_SECRET;
 
 module.exports = class jwtService {
   async sign(user) {

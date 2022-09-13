@@ -1,24 +1,25 @@
 const db = require("../models");
-const Proposal = db.proposal;
 const Candidate = db.candidate;
 
 exports.create = async (req, res) => {
-    
-    Proposal.create(req.body)
+
+    req.body.img = req.file.key
+
+    Candidate.create(req.body)
         .then(data => {
             res.send(data);
         })
         .catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Ocurrio un error al registrar el Proposal."
+                    err.message || "Ocurrio un error al registrar el Candidate."
             });
         });
 };
 
 // Recuperar todos los ServiceRequests de la base de datos
 exports.findAll = (req, res) => {
-    Proposal.findAll({
+    Candidate.findAll({
         order: [
             ["id", "DESC"],
         ],
@@ -29,13 +30,13 @@ exports.findAll = (req, res) => {
         .catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Ocurrio un error al recuperar todos los Proposal."
+                    err.message || "Ocurrio un error al recuperar todos los Candidate."
             });
         });
 };
 
 exports.findAllDetail = (req, res) => {
-    Proposal.findAll({
+    Candidate.findAll({
         include: [
             { model: db.serviceRequest, as: 'ServiceRequest' },
             { model: db.coreFile, as: 'CoreFile' }
@@ -47,7 +48,7 @@ exports.findAllDetail = (req, res) => {
         .catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Ocurrio un error al recuperar todos los Proposal."
+                    err.message || "Ocurrio un error al recuperar todos los Candidate."
             });
         });
 };
@@ -56,7 +57,7 @@ exports.findAllDetail = (req, res) => {
 exports.findOne = (req, res) => {
     const id = req.params.id;
 
-    Proposal.findByPk(id)
+    Candidate.findByPk(id)
         .then(data => {
             res.send(data);
         })
@@ -71,7 +72,7 @@ exports.findOne = (req, res) => {
 
 exports.findOneForServiceRequest = (req, res) => {
     console.log(req)
-    Proposal.findByPk({
+    Candidate.findByPk({
         include: [
             { model: db.serviceRequest, as: 'ServiceRequest' },
             { model: db.coreFile, as: 'CoreFile' }
@@ -88,13 +89,13 @@ exports.findOneForServiceRequest = (req, res) => {
         });
 };
 
-// Actualizar Proposal por id
+// Actualizar Candidate por id
 exports.update = async (req, res) => {
     const id = req.params.id;
 
     try {
         // Actualización de expediente técnico
-        let num = await Proposal.update(req.body, { where: { id: id } });
+        let num = await Candidate.update(req.body, { where: { id: id } });
 
         res.send({
             message: "Se actualizó con éxito el expediente!"
@@ -111,7 +112,7 @@ exports.update = async (req, res) => {
 exports.delete = (req, res) => {
     const id = req.params.id;
 
-    Proposal.destroy({
+    Candidate.destroy({
         where: { id: id }
     })
         .then(num => {
@@ -135,7 +136,7 @@ exports.delete = (req, res) => {
 
 // Eliminar todos los ServiceRequests de la base de datos
 exports.deleteAll = (req, res) => {
-    Proposal.destroy({
+    Candidate.destroy({
         where: {},
         truncate: false
     })
@@ -146,50 +147,6 @@ exports.deleteAll = (req, res) => {
             res.status(500).send({
                 message:
                     err.message || ""
-            });
-        });
-};
-
-exports.updateFiles = (req, res) => {
-    const id = req.params.id;
-
-    Proposal.update({ files: req.body }, { where: { id: id } })
-        .then(num => {
-            if (num == 1) {
-                res.send({
-                    message: "ok"
-                });
-            } else {
-                res.send({
-                    message: `No se encontro al VerificationListAnexB con id = ${id}`
-                });
-            }
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: "Error al actualizar VerificationListAnexB con id = " + id
-            });
-        });
-};
-
-exports.addModification = (req, res) => {
-    const id = req.params.id;
-
-    Proposal.update({ modifications: req.body }, { where: { id: id } })
-        .then(num => {
-            if (num == 1) {
-                res.send({
-                    message: "ok"
-                });
-            } else {
-                res.send({
-                    message: `No se encontro al VerificationListAnexB con id = ${id}`
-                });
-            }
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: "Error al actualizar VerificationListAnexB con id = " + id
             });
         });
 };

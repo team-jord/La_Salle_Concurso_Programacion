@@ -30,6 +30,7 @@ db.proposal = require("./proposal.model")(sequelize, Sequelize);
 db.candidate = require("./candidate.model")(sequelize, Sequelize);
 db.vote = require("./vote.model")(sequelize, Sequelize);
 db.voter = require("./voter.model")(sequelize, Sequelize);
+db.user = require("./user.model")(sequelize, Sequelize);
 
 db.candidate.hasMany(db.proposal);
 db.proposal.belongsTo(db.candidate);

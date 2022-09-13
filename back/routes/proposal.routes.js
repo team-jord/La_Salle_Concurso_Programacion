@@ -4,6 +4,8 @@ module.exports = app => {
 
     router.get("/:id", ProposalController.findOne);    
 
+    router.get("/", ProposalController.findAll);    
+
     router.post("/", ProposalController.create);    
 
     app.use('/proposal', router);

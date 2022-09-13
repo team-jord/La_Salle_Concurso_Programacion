@@ -1,24 +1,91 @@
 const db = require("../models");
-const Proposal = db.proposal;
-const Candidate = db.candidate;
+const User = db.user;
 
-exports.create = async (req, res) => {
+const jwtService = require("../services/jwt.service");
+const jwtServiceInstance = new jwtService();
+var CryptoJS = require("crypto-js");
+var sha256 = require('js-sha256');
+const encryptSecret = "election";
+
+exports.create = (req, res) => {
     
-    Proposal.create(req.body)
-        .then(data => {
-            res.send(data);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message:
-                    err.message || "Ocurrio un error al registrar el Proposal."
-            });
-        });
+    console.log(req.body)
+
+    User.findAll({ where: { email: req.body.email } }).then(response1 => {
+        if (response1[0]) {
+            res.send("usuario existente");
+        } else {
+            // Crear un usuario
+            // var decryptedBytes = CryptoJS.AES.decrypt(req.body.password, encryptSecret);
+            // var plaintext = decryptedBytes.toString(CryptoJS.enc.Utf8);
+
+            // Guardar Usuario en la base de datos
+            User.create(req.body)
+                .then(data => {
+                    const simpleUsuario = {
+                        id: data.id,
+                        name: req.body.name,
+                        email: req.body.email
+                    }
+
+                    jwtServiceInstance.sign(simpleUsuario).then(response => {
+                        data = {
+                            data,
+                            token: response
+                        }
+                        res.send(data);
+                    })
+                })
+                .catch(err => {
+                    res.status(500).send({
+                        message:
+                            err.message || "Ocurrio un error al registrar el usuario."
+                    });
+                });
+        }
+    })
 };
+
+exports.login = async (req, res) => {
+    console.log(req.body)
+    let dataUser = await User.findAll({ where: { email: req.body.email } })
+
+    if (dataUser.length > 0) {
+
+        dataJson = {
+            email: dataUser[0].email,
+            password: dataUser[0].password,
+            name: dataUser[0].name
+        }
+
+        var decryptedBytes = CryptoJS.AES.decrypt(req.body.password, encryptSecret);
+        var plaintext = decryptedBytes.toString(CryptoJS.enc.Utf8);
+
+        var decryptedBytes2 = CryptoJS.AES.decrypt(dataUser[0].password, encryptSecret);
+        var plaintext2 = decryptedBytes2.toString(CryptoJS.enc.Utf8);
+
+        if ((req.body.email === dataUser[0].email) && (plaintext === plaintext2)) {
+            jwtServiceInstance.sign(dataJson).then(response => {
+                dataSent = {
+                    user: dataUser[0],
+                    token: response
+                }
+                res.send(dataSent);
+            })
+        } else {
+            res.send("Credenciales Incorrectas")
+        }
+    } else {
+        res.send("Credenciales Incorrectas")
+    }
+
+
+};
+
 
 // Recuperar todos los ServiceRequests de la base de datos
 exports.findAll = (req, res) => {
-    Proposal.findAll({
+    User.findAll({
         order: [
             ["id", "DESC"],
         ],
@@ -29,13 +96,13 @@ exports.findAll = (req, res) => {
         .catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Ocurrio un error al recuperar todos los Proposal."
+                    err.message || "Ocurrio un error al recuperar todos los User."
             });
         });
 };
 
 exports.findAllDetail = (req, res) => {
-    Proposal.findAll({
+    User.findAll({
         include: [
             { model: db.serviceRequest, as: 'ServiceRequest' },
             { model: db.coreFile, as: 'CoreFile' }
@@ -47,7 +114,7 @@ exports.findAllDetail = (req, res) => {
         .catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Ocurrio un error al recuperar todos los Proposal."
+                    err.message || "Ocurrio un error al recuperar todos los User."
             });
         });
 };
@@ -56,7 +123,7 @@ exports.findAllDetail = (req, res) => {
 exports.findOne = (req, res) => {
     const id = req.params.id;
 
-    Proposal.findByPk(id)
+    User.findByPk(id)
         .then(data => {
             res.send(data);
         })
@@ -71,7 +138,7 @@ exports.findOne = (req, res) => {
 
 exports.findOneForServiceRequest = (req, res) => {
     console.log(req)
-    Proposal.findByPk({
+    User.findByPk({
         include: [
             { model: db.serviceRequest, as: 'ServiceRequest' },
             { model: db.coreFile, as: 'CoreFile' }
@@ -88,13 +155,13 @@ exports.findOneForServiceRequest = (req, res) => {
         });
 };
 
-// Actualizar Proposal por id
+// Actualizar User por id
 exports.update = async (req, res) => {
     const id = req.params.id;
 
     try {
         // Actualización de expediente técnico
-        let num = await Proposal.update(req.body, { where: { id: id } });
+        let num = await User.update(req.body, { where: { id: id } });
 
         res.send({
             message: "Se actualizó con éxito el expediente!"
@@ -111,7 +178,7 @@ exports.update = async (req, res) => {
 exports.delete = (req, res) => {
     const id = req.params.id;
 
-    Proposal.destroy({
+    User.destroy({
         where: { id: id }
     })
         .then(num => {
@@ -135,7 +202,7 @@ exports.delete = (req, res) => {
 
 // Eliminar todos los ServiceRequests de la base de datos
 exports.deleteAll = (req, res) => {
-    Proposal.destroy({
+    User.destroy({
         where: {},
         truncate: false
     })
@@ -146,50 +213,6 @@ exports.deleteAll = (req, res) => {
             res.status(500).send({
                 message:
                     err.message || ""
-            });
-        });
-};
-
-exports.updateFiles = (req, res) => {
-    const id = req.params.id;
-
-    Proposal.update({ files: req.body }, { where: { id: id } })
-        .then(num => {
-            if (num == 1) {
-                res.send({
-                    message: "ok"
-                });
-            } else {
-                res.send({
-                    message: `No se encontro al VerificationListAnexB con id = ${id}`
-                });
-            }
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: "Error al actualizar VerificationListAnexB con id = " + id
-            });
-        });
-};
-
-exports.addModification = (req, res) => {
-    const id = req.params.id;
-
-    Proposal.update({ modifications: req.body }, { where: { id: id } })
-        .then(num => {
-            if (num == 1) {
-                res.send({
-                    message: "ok"
-                });
-            } else {
-                res.send({
-                    message: `No se encontro al VerificationListAnexB con id = ${id}`
-                });
-            }
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: "Error al actualizar VerificationListAnexB con id = " + id
             });
         });
 };
