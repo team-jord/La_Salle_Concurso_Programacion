@@ -1,0 +1,36 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "18.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "software4all",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.163.0",
+    "aws-sdk": "^2.1127.0",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "js-sha256": "^0.9.0",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.4",
+    "multer-s3": "2.x",
+    "nodemon": "^2.0.19",
+    "numero-a-letras": "^1.0.6",
+    "pdf-creator-node": "^2.3.4",
+    "pg": "^8.7.3",
+    "promisify": "^0.0.3",
+    "sequelize": "^6.17.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.4.1"
+  }
+}
