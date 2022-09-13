@@ -7,14 +7,23 @@ var CryptoJS = require("crypto-js");
 var sha256 = require('js-sha256');
 const encryptSecret = "election";
 
-exports.create = (req, res) => {
+exports.create = async (req, res) => {
     
     req.body.img = req.file.key
+
+    let userINeKey = await User.findAll({ where: { idINE: req.body.idINE } })
+
+    if (userINeKey[0]) {
+        res.status(203).send("Ine que trata de registrar ya existe");        
+        return;
+    }
 
     User.findAll({ where: { email: req.body.email } }).then(response1 => {
         if (response1[0]) {
             res.send("usuario existente");
         } else {
+
+            
             // Crear un usuario
             // var decryptedBytes = CryptoJS.AES.decrypt(req.body.password, encryptSecret);
             // var plaintext = decryptedBytes.toString(CryptoJS.enc.Utf8);
