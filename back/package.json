@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "author": "CDVM",
+  "author": "software4all",
   "license": "ISC",
   "dependencies": {
     "@aws-sdk/client-s3": "^3.163.0",
