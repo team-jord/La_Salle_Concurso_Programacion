@@ -15,6 +15,9 @@ module.exports = (sequelize, Sequelize) => {
         location: {
             type: Sequelize.STRING
         },
+        questionnaire:{
+            type: Sequelize.JSON
+        }
     });
     return Proposal;
 };

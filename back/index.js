@@ -57,4 +57,5 @@ app.listen(PORT, () => {
 require("./routes/proposal.routes")(app);
 require("./routes/candidate.routes")(app);
 require("./routes/user.routes")(app);
+require("./routes/vote.routes")(app);
 
