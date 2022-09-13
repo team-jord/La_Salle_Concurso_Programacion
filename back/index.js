@@ -54,22 +54,5 @@ app.listen(PORT, () => {
     console.log(`Server está ejecutándose en puerto ${PORT}.`);
 });
 
-require("./routes/images.routes")(app);
-require("./routes/documents.routes")(app);
-require("./routes/pdf.routes")(app);
-require("./routes/technicalFile.routes")(app);
-require("./routes/serviceRequest.routes")(app);
-require("./routes/coreFile.routes")(app);
-require("./routes/priceRequest.routes")(app);
-require("./routes/modification.routes")(app);
-require("./routes/verificationContract.routes")(app);
-require("./routes/verificationList.routes")(app);
-require("./routes/verificationSiteList.routes")(app);
-require("./routes/verificationListAnexB.routes")(app);
-require("./routes/testComprobation.routes")(app);
-require("./routes/dictum.routes")(app);
-require("./routes/dictumCover.routes")(app);
-require("./routes/evaluationAct.routes")(app);
-require("./routes/s3.routes")(app);
-require("./routes/user.routes")(app);
+require("./routes/proposal.routes")(app);
 
