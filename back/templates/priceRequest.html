@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Cotización</title>
+</head>
+
+<body>
+    <img hidden
+        src='data:image/png;base64,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' />
+    <div>
+        {{#each data}}
+        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;'><span style="font-size:12px;">&nbsp;</span>
+        </p>
+        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;'><span style="font-size:12px;">&nbsp;</span>
+        </p>
+        <div style="width: 100% !important;height: 50px;">
+            <table style="float: left;border: none;border-collapse:collapse;margin-left:4.8pt;margin-right:4.8pt;">
+                <tbody>
+                    <tr>
+                        <td
+                            style="width: 367.9pt;border-top: none;border-right: none;border-left: none;border-image: initial;border-bottom: 1pt solid windowtext;padding: 0in 5.4pt;vertical-align: top;">
+                            <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;text-align:center;'>
+                                {{this.priceRequest.place}}, {{this.priceRequest.date}}
+                            </p>
+                        </td>
+                        <td style="width: 29pt;padding: 0in 5.4pt;vertical-align: top;">
+                            <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;'>&nbsp;</p>
+                        </td>
+                        <td
+                            style="width: 113.4pt;border-top: none;border-right: none;border-left: none;border-image: initial;border-bottom: 1pt solid windowtext;padding: 0in ;vertical-align: top;">
+                            <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;'>
+                                {{this.priceRequest.controlNumber}}
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 367.9pt;border: none;padding: 0in 5.4pt;vertical-align: top;">
+                            <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;text-align:center;'>
+                                <em><span style="font-size:12px;color:#A6A6A6;">(Lugar y Fecha)</span></em></p>
+                        </td>
+                        <td colspan="2" style="width: 142.4pt;padding: 0in 5.4pt;vertical-align: top;">
+                            <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;text-align:center;'>
+                                <em><span style="font-size:12px;color:#A6A6A6;">&nbsp; &nbsp; (No. De
+                                        Control)</span></em></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;font-size:15px'>
+                {{this.coreFile.petitionerName}}
+                &nbsp;</p>
+            <p
+                style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold; font-size:12px;font-weight:normal;'>
+                PRESENTE</p>
+        </div>
+        <p style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;'><span
+                style="font-size:12px;font-weight:normal;">&nbsp;</span></p>
+        <p style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;'><span
+                style="font-size:12px;font-weight:normal;">En respuesta a su solicitud, pongo a su consideraci&oacute;n
+                el presupuesto relativo a la verificaci&oacute;n de sus instalaciones el&eacute;ctricas; conforme
+                a:&nbsp;</span><span style="font-size:12px;font-weight:normal;">NOM-001-SEDE-2012 Instalaciones
+                el&eacute;ctricas (Utilizaci&oacute;n).</span></p>
+        <p style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;'><span
+                style="font-size:12px;font-weight:normal;">&nbsp;</span></p>
+        <p style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;'><span
+                style="font-size:12px;font-weight:normal;">&nbsp;</span></p>
+        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;margin-bottom:6.0pt;'><strong><span
+                    style="font-size:12px;">GENERALES:</span></strong></p>
+        <table style="width: 100%;border: none;margin-left:3.5pt;border-collapse:collapse;">
+            <tbody>
+                <tr>
+                    <td colspan="5"
+                        style="width: 517.4pt;border-color: windowtext black black windowtext;border-style: solid;border-width: 1pt;padding: 0in 3.5pt;height: 20.1pt;vertical-align: top;">
+                        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;'><span
+                                style='font-family:"Calibri",sans-serif;color:black;'>Nombre o Raz&oacute;n Social de la
+                                instalaci&oacute;n el&eacute;ctrica a Verificar: &nbsp;</span>
+                            {{this.coreFile.socialReason}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5"
+                        style="width: 517.4pt;border-top: none;border-left: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-right: 1pt solid black;padding: 0in 3.5pt;height: 17.25pt;vertical-align: top;">
+                        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;margin-bottom:12.0pt;'><span
+                                style='font-family:"Calibri",sans-serif;'>Actividad de la instalaci&oacute;n conforme al
+                                SCIAN: <strong>&nbsp;</strong></span> {{this.coreFile.scian}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"
+                        style="width: 236.4pt;border-top: none;border-right: none;border-bottom: none;border-image: initial;border-left: 1pt solid windowtext;padding: 0in 3.5pt;height: 20.1pt;vertical-align: bottom;">
+                        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;'><span
+                                style='font-family:"Calibri",sans-serif;color:black;'>Tensi&oacute;n el&eacute;ctrica de
+                                suministro: (entre conductores)</span></p>
+                    </td>
+                    <td rowspan="5"
+                        style="width: 122.05pt;border-top: none;border-left: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-right: none;padding: 0in 3.5pt;height: 20.1pt;vertical-align: top;">
+                        <p
+                            style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;margin-left:10.65pt;text-indent:-10.65pt;'>
+                            <span style='font-family:"Calibri",sans-serif;color:black;'>(
+                                {{#ifCond this.coreFile.kindOfLocation "===" 'public'}}
+                                X
+                                {{/ifCond}} )Lugar de
+                                concentraci&oacute;n p&uacute;blica</span></p>
+                        <p
+                            style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;margin-left:10.65pt;text-indent:-10.65pt;'>
+                            <span style='font-family:"Calibri",sans-serif;color:black;'>&nbsp;</span></p>
+                        <p
+                            style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;margin-left:10.65pt;text-indent:-10.65pt;'>
+                            <span
+                                style='font-family:"Calibri",sans-serif;color:black;'>({{#ifCond this.coreFile.kindOfLocation "===" 'dangerous'}}
+                                X
+                                {{/ifCond}} )&Aacute;reas
+                                peligrosas (clasificadas)</span></p>
+                        <p
+                            style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;margin-left:10.65pt;text-indent:-10.65pt;'>
+                            <span style='font-family:"Calibri",sans-serif;color:black;'>&nbsp;</span></p>
+                        <p
+                            style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;margin-left:10.65pt;text-indent:-10.65pt;'>
+                            <span style='font-family:"Calibri",sans-serif;color:black;'>(
+                                {{#ifCond this.coreFile.kindOfLocation "===" 'industry'}}
+                                X
+                                {{/ifCond}}
+                                )Industria</span></p>
+                        <p
+                            style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;margin-left:10.65pt;text-indent:-10.65pt;'>
+                            <span style='font-family:"Calibri",sans-serif;color:black;'>&nbsp;</span></p>
+                        <p
+                            style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;margin-left:10.65pt;text-indent:-10.65pt;'>
+                            <span
+                                style='font-family:"Calibri",sans-serif;color:black;'>({{#ifCond this.coreFile.kindOfLocation "===" 'others'}}
+                                X
+                                {{/ifCond}} )Otros
+                                &nbsp;&nbsp;</span></p>
+                    </td>
+                    <td rowspan="5"
+                        style="width: 158.95pt;border-top: none;border-left: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-right: 1pt solid black;padding: 0in 3.5pt;height: 20.1pt;vertical-align: top;">
+                        <p
+                            style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;margin-left:10.7pt;text-indent:-10.7pt;'>
+                            <span style='font-family:"Calibri",sans-serif;color:black;'>(
+                                {{#ifCond this.coreFile.kindOfInstallation "===" 'new'}}
+                                X
+                                {{/ifCond}}) Instalaci&oacute;n
+                                nueva.</span></p>
+                        <p
+                            style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;margin-left:10.7pt;text-indent:-10.7pt;'>
+                            <span style='font-family:"Calibri",sans-serif;color:black;'>(
+                                {{#ifCond this.coreFile.kindOfInstallation "===" 'widening'}}
+                                X
+                                {{/ifCond}}) Ampliaci&oacute;n de
+                                una instalaci&oacute;n existente.</span></p>
+                        <p
+                            style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;margin-left:10.7pt;text-indent:-10.7pt;'>
+                            <span style='font-family:"Calibri",sans-serif;color:black;'>(
+                                {{#ifCond this.coreFile.kindOfInstallation "===" 'modification'}}
+                                X
+                                {{/ifCond}}) Modificaci&oacute;n de
+                                una instalaci&oacute;n existente.</span></p>
+                        <p
+                            style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;margin-left:10.7pt;text-indent:-10.7pt;'>
+                            <span style='font-family:"Calibri",sans-serif;color:black;'>(
+                                {{#ifCond this.coreFile.kindOfInstallation "===" 'verification'}}
+                                X
+                                {{/ifCond}})&nbsp;</span><span
+                                style='font-size:11px;font-family:"Calibri",sans-serif;color:black;'>Verificaci&oacute;n
+                                peri&oacute;dica de instalaci&oacute;n el&eacute;ctrica con &aacute;reas
+                                peligrosas.</span></p>
+                        <p
+                            style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;margin-left:10.7pt;text-indent:-10.7pt;'>
+                            <span style='font-family:"Calibri",sans-serif;color:black;'>(
+                                {{#ifCond this.coreFile.kindOfInstallation "===" 'subestation'}}
+                                X
+                                {{/ifCond}})&nbsp;</span><span
+                                style='font-size:11px;font-family:"Calibri",sans-serif;color:black;'>Subestaci&oacute;n
+                                para cambio de tensi&oacute;n para la alimentaci&oacute;n de la
+                                instalaci&oacute;n.</span></p>
+                        <p
+                            style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;margin-left:10.7pt;text-indent:-10.7pt;'>
+                            <span style='font-family:"Calibri",sans-serif;color:black;'>(
+                                {{#ifCond this.coreFile.kindOfInstallation "===" 'before'}}
+                                X
+                                {{/ifCond}})&nbsp;</span><span
+                                style='font-size:11px;font-family:"Calibri",sans-serif;color:black;'>Instalaci&oacute;n
+                                construida antes de la entrada en vigor de la NOM-001-SEDE-2012.</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"
+                        style="width: 236.4pt;border-top: none;border-right: none;border-bottom: none;border-image: initial;border-left: 1pt solid windowtext;padding: 0in 3.5pt;height: 20.1pt;vertical-align: bottom;">
+                        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;'><span
+                                style='font-family:"Calibri",sans-serif;color:black;'>Menor de 1000 V (
+                                {{#ifCond this.coreFile.tension "<" 1000}}
+                                X
+                                {{/ifCond }} ) &nbsp;
+                                &nbsp; &nbsp; &nbsp;1000 V o m&aacute;s ( {{#ifCond this.coreFile.tension ">=" 1000}}
+                                X
+                                {{/ifCond }})</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="width: 152.45pt;border-top: none;border-left: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-right: none;padding: 0in 3.5pt;height: 25.25pt;vertical-align: bottom;">
+                        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;text-align:right;'><span
+                                style='font-family:"Calibri",sans-serif;'>&nbsp; &nbsp; &nbsp; &nbsp; Capacidad de la
+                                Subestaci&oacute;n</span></p>
+                    </td>
+                    <td style="width: 38.15pt;padding: 0in 3.5pt;height: 25.25pt;vertical-align: bottom;">
+                        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;'><span
+                                style='font-family:"Calibri",sans-serif;'>{{this.coreFile.capacity}}</span></p>
+                    </td>
+                    <td
+                        style="width: 45.8pt;border-top: none;border-right: none;border-left: none;border-image: initial;border-bottom: 1pt solid windowtext;padding: 0in 3.5pt;height: 25.25pt;vertical-align: bottom;">
+                        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;'><span
+                                style='font-family:"Calibri",sans-serif;'>(kVA)</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="width: 152.45pt;border-top: none;border-right: none;border-bottom: none;border-image: initial;border-left: 1pt solid windowtext;padding: 0in 3.5pt;height: 24.75pt;vertical-align: bottom;">
+                        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;text-align:right;'><span
+                                style='font-family:"Calibri",sans-serif;'>Carga instalada</span></p>
+                    </td>
+                    <td
+                        style="width: 38.15pt;border-right: none;border-bottom: none;border-left: none;border-image: initial;border-top: 1pt solid windowtext;padding: 0in 3.5pt;height: 24.75pt;vertical-align: bottom;">
+                        <br><p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;text-align:right;'><span
+                            style='font-family:"Calibri",sans-serif;'>{{this.coreFile.installedCharge}}</span></p></td>
+                    <td style="width: 45.8pt;border: none;padding: 0in 3.5pt;height: 24.75pt;vertical-align: bottom;">
+                        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;'><span
+                                style='font-family:"Calibri",sans-serif;'>kW</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="width:152.45pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:  0in 3.5pt 0in 3.5pt;height:23.0pt;">
+                        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;text-align:right;'><span
+                                style='font-family:"Calibri",sans-serif;'>Alcance de la Verificaci&oacute;n</span></p>
+                    </td>
+                    <td
+                        style="width:38.15pt;border:none;border-bottom:solid windowtext 1.0pt;padding:0in 3.5pt 0in 3.5pt;height:23.0pt;">
+                        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;text-align:right;'><span
+                            style='font-family:"Calibri",sans-serif;'>{{this.coreFile.verificationExtend}}</span></p>
+                    </td>
+                    <td
+                        style="width:45.8pt;border:none;border-bottom:solid windowtext 1.0pt;padding:0in 3.5pt 0in 3.5pt;height:23.0pt;">
+                        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;'><span
+                                style='font-family:"Calibri",sans-serif;'>kW</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p
+            style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;margin-top:0in;margin-right:0in;margin-bottom:6.0pt;margin-left:-7.1pt;'>
+            <strong><span style="font-size:12px;">&nbsp;</span></strong></p>
+        <p style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;'><span
+                style="font-size:12px;font-weight:normal;">El cliente debe proporcionar la siguiente informaci&oacute;n;
+                para cargas:</span></p>
+        <p style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;'><span
+                style="font-size:10px;font-weight:normal;">                
+                {{#ifCond this.priceRequest.isMajorKW "==" false}}
+                ☑
+                {{/ifCond }}
+                {{#ifCond this.priceRequest.isMajorKW "==" true}}
+                ☐
+                {{/ifCond }}
+            </span><span
+                style="font-size:12px;font-weight:normal;">&nbsp;Menores a&nbsp;</span><span
+                style="font-size:12px;font-weight:normal;">100 KW el diagrama unifilar conforme al 7.1 del PEC de la
+                NOM-001-SEDE-Vigente&nbsp;</span></p>
+        <p
+            style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:0in;text-align:justify;text-indent:14.45pt;line-height:normal;font-size:12px;font-family:"Arial",sans-serif;'>
+            El proyecto el&eacute;ctrico correspondiente. Diagrama unifilar, relaci&oacute;n de cargas, lista de
+            materiales y equipo utilizado de manera general, incluida la informaci&oacute;n de los transformadores,
+            cuando as&iacute; aplique, adjuntando adem&aacute;s los documentos que comprueben que estos est&aacute;n
+            debidamente aprobados y cumplen con las normas oficiales mexicanas y disposiciones legales aplicables
+            vigentes.</p>
+        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;'><strong><span
+                    style="font-size:12px;">&nbsp;</span></strong></p>
+        <p
+            style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;margin-left:14.2pt;text-indent:-14.2pt;'>
+            <span style="font-size:10px;font-weight:normal;">
+                {{#ifCond this.priceRequest.isMajorKW "==" true}}
+                ☑
+                {{/ifCond }}
+                {{#ifCond this.priceRequest.isMajorKW "==" false}}
+                ☐
+                {{/ifCond }}
+            </span><span
+                style="font-size:12px;font-weight:normal;">Mayores a 100 kW: el Proyecto completo incluyendo la memoria
+                con&nbsp;</span><span style="font-size:12px;font-weight:normal;">los c&aacute;lculos correspondientes
+                conforme al 7.2 del PEC de la NOM-001-SEDE-Vigente.&nbsp;</span></p>
+        <p style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;'><span
+                style="font-size:12px;font-weight:normal;">El proyecto el&eacute;ctrico, que debe contener la
+                informaci&oacute;n que permita determinar el grado de cumplimiento con las disposiciones establecidas en
+                la NOM</span></p>
+        <ol style="list-style-type: upper-roman;margin-left:11.3px;font-family: Arial;">
+            <li>Diagrama unifilar.</li>
+            <li>Cuadro de distribuci&oacute;n de cargas por circuito.</li>
+            <li>Plano el&eacute;ctrico</li>
+            <li>Lista de los principales materiales utilizados, incluida la informaci&oacute;n de los transformadores,
+                cuando as&iacute; aplique, adjuntando los documentos que comprueben que est&aacute;n debidamente
+                aprobados y cumplen con las normas oficiales mexicanas y disposiciones legales aplicables vigentes.</li>
+            <li>Lista de los principales equipos utilizados, incluida la informaci&oacute;n de los transformadores,
+                cuando as&iacute; aplique, adjuntando los documentos que comprueben que est&aacute;n debidamente
+                aprobados y cumplen con las normas oficiales mexicanas y disposiciones legales aplicables vigentes.</li>
+            <li>Croquis de localizaci&oacute;n del domicilio donde se ubica la instalaci&oacute;n el&eacute;ctrica</li>
+            <li>Memoria t&eacute;cnica</li>
+        </ol>
+        <p
+            style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;margin-left:14.2pt;text-indent:-14.2pt;'>
+            <span style="font-size:10px;font-weight:normal;">
+                {{#ifCond this.priceRequest.isDangerous "==" true}}
+                ☑
+                {{/ifCond }}
+                {{#ifCond this.priceRequest.isDangerous "==" false}}
+                ☐
+                {{/ifCond }}
+            </span><span
+                style="font-size:12px;font-weight:normal;">Instalaciones</span><span
+                style="font-size:12px;font-weight:normal;">&nbsp;que cuenten con &aacute;reas clasificadas como
+                peligrosas.</span></p>
+        <p style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;'><span
+                style="font-size:12px;font-weight:normal;">E</span><span style="font-size:12px;font-weight:normal;">l
+                plano de las &aacute;reas peligrosas (clasificadas) indicando los l&iacute;mites en vistas de planta y
+                cortes transversales y longitudinales, de forma que las disposiciones contenidas en la NOM, aplicables a
+                cada clasificaci&oacute;n, pueda verificarse objetivamente</span></p>
+        <p style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;'><span
+                style="font-size:12px;font-weight:normal;">&nbsp;</span></p>
+        <p style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;'><span
+                style="font-size:12px;">ALCANCE&nbsp;</span></p>
+        <p style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;'><span
+                style="font-size:12px;font-weight:normal;">Alcance&nbsp;</span><span
+                style="font-size:12px;font-weight:normal;">de los servicios profesionales de esta Unidad de
+                Verificaci&oacute;n de Instalaciones El&eacute;ctricas.</span></p>
+        <p style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;'><span
+                style="font-size:9px;font-weight:normal;">&nbsp;</span></p>
+        <p
+            style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;margin-left:14.2pt;text-indent:-14.2pt;'>
+            <span style="font-size:12px;font-weight:normal;">1.-</span><u><span
+                    style="font-size:12px;">Revisi&oacute;n&nbsp;</span></u><span
+                style="font-size:12px;font-weight:normal;">del proyecto y memoria t&eacute;cnica descriptiva
+                seg&uacute;n corresponda de la instalaci&oacute;n el&eacute;ctrica, para verificar que cumpla con los
+                requisitos m&iacute;nimos establecidos en la &nbsp;</span><span
+                style="font-size:12px;font-weight:normal;">NOM</span><span
+                style="font-size:12px;font-weight:normal;">&nbsp;y su PEC. Enviando por escrito observaciones al
+                proyecto, en caso de existir.&nbsp;</span></p>
+        <p
+            style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;margin-left:14.2pt;text-indent:-14.2pt;'>
+            <span style="font-size:12px;font-weight:normal;">2.-</span><u><span style="font-size:12px;">Verificacion en
+                    SITIO&nbsp;</span></u><span style="font-size:12px;font-weight:normal;">de &nbsp;las
+                &nbsp;instalaciones &nbsp; el&eacute;ctricas, &nbsp;que est&eacute;n de &nbsp;acuerdo al proyecto, para
+                &nbsp;constatar que cumplen con los requisitos de seguridad y estado que guardan con respecto a la NOM
+                solicitada y su PEC.</span></p>
+        <p
+            style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;margin-left:14.2pt;text-indent:-14.2pt;'>
+            <span style="font-size:12px;font-weight:normal;">3.-En cada visita de verificaci&oacute;n se
+                levantar&aacute; un Acta de Evaluaci&oacute;n de Conformidad del &aacute;mbito propio; En caso de
+                encontrar no conformidades a la NOM. Se indicar&aacute;n en dicha acta.</span></p>
+        <p
+            style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;margin-left:14.2pt;text-indent:-14.2pt;'>
+            <span style="font-size:12px;font-weight:normal;">4.-Comprobacion de las pruebas indicadas en el PEC de la
+                NOM solicitada.</span></p>
+        <p
+            style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;margin-left:14.2pt;text-indent:-14.2pt;'>
+            <span style="font-size:12px;font-weight:normal;">5.-Una vez que las instalaciones satisfagan lo indicado en
+                la NOM y su PEC., se entrega el dictamen de verificaci&oacute;n.</span></p>
+        <p
+            style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;margin-left:14.2pt;text-indent:-14.2pt;'>
+            <span style="font-size:12px;font-weight:normal;">6.- Se realizar&aacute; hasta un m&aacute;ximo de <strong>{{this.priceRequest.numberOfVisits}}</strong>
+                visitas en la instalaci&oacute;n el&eacute;ctrica. En cuyo caso se determinar&aacute; el cargo de
+                vi&aacute;ticos dependiendo el lugar de visita.</span></p>
+        <p style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;'><span
+                style="font-size:11px;font-weight:normal;">&nbsp;</span></p>
+        <p
+            style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;line-height:150%;'>
+            <span style="font-size:12px;line-height:150%;">DECLARACIONES Y COMPROMISOS</span><span
+                style="font-size:12px;line-height:150%;font-weight:normal;">&nbsp;por parte del Titular de la Unidad de
+                Verificaci&oacute;n UVIE:</span></p>
+        <p
+            style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;margin-left:14.2pt;text-indent:-14.2pt;'>
+            <span style="font-size:12px;font-weight:normal;">1.- Toda la informaci&oacute;n que proporcione el cliente
+                se considera de car&aacute;cter confidencial. Exceptuando que por ley o a petici&oacute;n de las
+                autoridades competentes se deba divulgar dicha informaci&oacute;n.</span></p>
+        <p
+            style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;margin-left:14.2pt;text-align:justify;text-indent:-14.2pt;'>
+            2.- La UVIE y su personal est&aacute;n libres de cualquier presi&oacute;n comercial, financiera o de
+            cualquier&nbsp;otro tipo que pueda afectar su juicio. Ser imparcial y no existan conflictos de intereses.
+        </p>
+        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;text-align:justify;'>3.- La presente tiene
+            una vigencia de 30 d&iacute;as calendario, contado a partir de la fecha de la entrega de la presente.</p>
+        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;text-align:justify;'>4.- El cliente
+            podr&aacute; emitir las quejas, reclamaciones t&eacute;cnicas y apelaciones que a su derecho convenga.</p>
+        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;text-align:justify;'>5.- La UVIE cuenta con
+            un seguro de responsabilidad para las actividades de verificaci&oacute;n.</p>
+        <p
+            style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;margin-left:14.2pt;text-align:justify;text-indent:-14.2pt;'>
+            6.- En caso que &ldquo;EL SOLICITANTE&rdquo; en forma unilateral y sin causas imputables a la UVIE o
+            &ldquo;EL VERIFICADOR&rdquo;, cancelar&aacute; la verificaci&oacute;n, no tendr&aacute; derecho a reclamar
+            la devoluci&oacute;n del anticipo o cubrir&aacute; el precio de las actividades ejecutadas hasta el momento
+            de la cancelaci&oacute;n, lo que sea mayor.</p>
+        <p
+            style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;margin-left:14.2pt;text-align:justify;text-indent:-14.2pt;'>
+            7.- Si la UVIE o &ldquo;EL VERIFICADOR&rdquo; no diera cabal cumplimiento a sus obligaciones del presente
+            instrumento, &ldquo;EL SOLICITANTE&rdquo; Tendr&aacute; derecho a rescindirlo.</p>
+        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;text-align:justify;'>&nbsp;</p>
+        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;'>&nbsp;</p>
+        <p style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;'><span
+                style="font-size:12px;">COSTO DE LA VERIFICACI&Oacute;N:</span></p>
+        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;text-align:justify;'>&nbsp;</p>
+        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;text-align:justify;'>{{this.priceRequest.verificationCost}}<span
+                    style="color:#A6A6A6;"> ({{this.priceRequest.verificationCostLetter}}) IVA Incluido.</span></em></p>
+        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;text-align:justify;'><span
+                style="color:#A6A6A6;">&nbsp;</span></p>
+        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;text-align:justify;'><strong><span
+                    style="font-size:12px;">FORMA DE PAGO:</span></strong></p>
+        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;text-align:justify;'>&nbsp;</p>
+        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;text-align:justify;'>Anticipo: {{this.priceRequest.advance}}</p>
+        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;text-align:justify;'>Finiquito: {{this.priceRequest.settlement}}</p>
+        <p style='margin:0in;font-size:13px;font-family:"Arial",sans-serif;text-align:justify;'><span
+                style="color:#A6A6A6;">&nbsp;</span>
+        </p>
+        <p
+            style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;text-indent:-35.25pt;'>
+            <span style="font-size:12px;font-weight:normal;">&nbsp;&nbsp;</span></p>
+        <p style='margin:0in;text-align:justify;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;'><span
+                style="font-size:12px;font-weight:normal;">Sin m&aacute;s por el momento y en espera de poder brindarle
+                nuestros servicios, quedamos en espera de su autorizaci&oacute;n.</span></p>
+        <p style='margin:0in;text-align:center;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;'><span
+                style="font-size:12px;font-weight:normal;">&nbsp;</span></p>
+        <p style='margin:0in;text-align:center;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;'><span
+                style="font-size:12px;font-weight:normal;">A T E N T A M E N T E &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;S I &nbsp; A U T O R I Z A M O S</span></p>
+        <p style='margin:0in;text-align:center;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;'><span
+                style="font-size:12px;font-weight:normal;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></p>
+        <p style='margin:0in;text-align:center;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;'><span
+                style="font-size:12px;font-weight:normal;">_______________________________________&nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;____________________________________</span></p>
+        <p style='margin:0in;text-align:center;font-size:16px;font-family:"Arial",sans-serif;font-weight:bold;'><span
+                style="font-size:12px;font-weight:normal;">JESUS OMAR RICARDEZ ORTIZ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{this.coreFile.petitionerName}}
+                &nbsp; &nbsp;</span>
+        </p>
+        {{/each}}
+    </div>
+</body>
+
+</html>
