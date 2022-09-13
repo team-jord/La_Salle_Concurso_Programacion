@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Suspense } from "react";
+import { HashRouter, Route, Routes } from "react-router-dom";
+import "./scss/style.scss";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const loading = (
+  <div className="pt-3 text-center">
+    <div className="sk-spinner sk-spinner-pulse"></div>
+  </div>
+);
+
+// Containers
+const DefaultLayout = React.lazy(() => import("./layout/DefaultLayout"));
+
+// Pages
+const Login = React.lazy(() => import("./pages/login/Login"));
+const Page404 = React.lazy(() => import("./pages/page404/Page404"));
+
+class App extends Component {
+  render() {
+    return (
+      <HashRouter>
+        <Suspense fallback={loading}>
+          <Routes>
+            <Route path="*" name="Home" element={<DefaultLayout />} />
+            <Route exact path="/login" name="Login Page" element={<Login />} />
+            <Route exact path="/404" name="Page 404" element={<Page404 />} />
+          </Routes>
+        </Suspense>
+      </HashRouter>
+    );
+  }
 }
 
 export default App;
