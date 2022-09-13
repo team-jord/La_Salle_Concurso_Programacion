@@ -8,5 +8,7 @@ module.exports = app => {
 
     router.post("/", ProposalController.create);    
 
+    router.delete("/:id", ProposalController.delete);    
+
     app.use('/proposal', router);
 }
