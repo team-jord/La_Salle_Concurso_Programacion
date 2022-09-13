@@ -3,7 +3,7 @@ const Proposal = db.proposal;
 const Candidate = db.candidate;
 
 exports.create = async (req, res) => {
-    
+
     Proposal.create(req.body)
         .then(data => {
             res.send(data);

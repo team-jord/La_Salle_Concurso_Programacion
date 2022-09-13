@@ -50,6 +50,21 @@ exports.findAllDetail = (req, res) => {
         });
 };
 
+exports.findByUserId = (req, res) => {
+    const userId = req.params.userId;
+    Vote.findAll({where : {userId: userId}
+    })
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Ocurrio un error al recuperar todos los Vote."
+            });
+        });
+};
+
 // Encontrar ServiceRequest por id
 exports.findOne = (req, res) => {
     const id = req.params.id;

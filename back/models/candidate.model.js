@@ -11,6 +11,9 @@ module.exports = (sequelize, Sequelize) => {
         },
         img: {
             type: Sequelize.STRING
+        },
+        position: {
+            type: Sequelize.STRING
         }
     });
     return Candidate;

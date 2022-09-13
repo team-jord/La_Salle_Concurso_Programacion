@@ -3,6 +3,9 @@ module.exports = (sequelize, Sequelize) => {
         isVoted: {
             type: Sequelize.BOOLEAN
         },
+        answers:{
+            type: Sequelize.JSON            
+        }
     });
     return Vote;
 };

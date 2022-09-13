@@ -3,7 +3,11 @@ module.exports = app =>{
     var router = require("express").Router();
 
     router.post("/", VoteController.create);
-    
+
+    router.get("/", VoteController.findAll);
+
+    router.get("/:userId", VoteController.findByUserId);
+
     app.use('/vote', router);
 }
 

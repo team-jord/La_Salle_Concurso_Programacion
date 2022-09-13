@@ -8,8 +8,12 @@ var sha256 = require('js-sha256');
 const encryptSecret = "election";
 
 exports.create = async (req, res) => {
-    
-    req.body.img = req.file.key
+
+    console.log(req)
+
+    if(req.body.img){
+        req.body.img = req.file.key
+    }    
 
     let userINeKey = await User.findAll({ where: { idINE: req.body.idINE } })
 
