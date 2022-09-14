@@ -1,23 +1,31 @@
-import React from 'react'
-import { CFooter } from '@coreui/react'
+import React from "react";
+import { CFooter } from "@coreui/react";
 
 const AppFooter = () => {
   return (
     <CFooter>
       <div>
-        <a href="https://coreui.io" target="_blank" rel="noopener noreferrer">
-          CoreUI
+        <a
+          href="https://www.youtube.com/watch?v=8SbUC-UaAxE"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Votaciones
         </a>
-        <span className="ms-1">&copy; 2022 creativeLabs.</span>
+        <span className="ms-1">&copy; 2022 Software4All.</span>
       </div>
       <div className="ms-auto">
-        <span className="me-1">Powered by</span>
-        <a href="https://coreui.io/react" target="_blank" rel="noopener noreferrer">
-          CoreUI React Admin &amp; Dashboard Template
+        <span className="me-1">Concurso de programacion</span>
+        <a
+          href="https://www.ulsaoaxaca.edu.mx/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          La Salle Oaxaca 2022
         </a>
       </div>
     </CFooter>
-  )
-}
+  );
+};
 
-export default React.memo(AppFooter)
+export default React.memo(AppFooter);
